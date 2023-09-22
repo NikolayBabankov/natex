@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="service js-service">
+    <div class="container">
+        <h1 class="title">{{service.name}}</h1>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="service_post">
+                    {{service.text|safe}}
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="service_sidebar">
+                    <div class="service_sidebar_title">
+                        Услуги
+                    </div>
+                    <ul class="service_sidebar_list">
+                    {% for service in services %}
+                        {% if not service.is_child_node %}
+                            <li class="service_sidebar_list_item">
+                                <a href="{% url 'service' service.slug %}" class="service_sidebar_list_item_link js-sidebar-link">{{service.name}}</a>
+                                {% if service.children.all %}
+                                <ul class="service_sidebar_sub">
+                                    {% for children in service.children.all %}
+                                        <li class="service_sidebar_sub_item">
+                                            <a href="{% url 'service' children.slug %}" class="service_sidebar_sub_item_link js-sidebar-link">{{children.name}}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="service_extra_text">
+            {{service.extra_text|safe}}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

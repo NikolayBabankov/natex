@@ -1,0 +1,27 @@
+.blog{
+    &_post{
+        margin-bottom: 30px;
+        &_link{
+            font-size: 20px;
+            font-weight: 500;
+            color: $main-color;
+            text-decoration: none;
+            transition: .3s all;
+            display: block;
+            margin-bottom: 10px;
+            &:hover{
+                color: #005782;
+            }
+        }
+        &_shot_text{
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+}
+
+.post{
+    ul{
+        padding-left: 15px;
+    }
+}

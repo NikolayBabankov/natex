@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap');
+@import 'base/variables';
+@import 'libs/grid';
+@import 'libs/normilize';
+@import 'libs/lightbox';
+@import 'libs/swiper';
+@import 'block/header';
+@import 'block/footer';
+@import 'page/about';
+@import 'page/blog';
+@import 'page/services';
+@import 'page/contacts';
+@import 'page/index';
+@import 'media';
+
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: $text-color;
+}
+
+
+body {
+    min-width: 1000px;
+    background: #f3f3f3 url(/static/img/background.png);
+    font-family: 'Open Sans', sans-serif;
+    color: #2a2a2a;
+}
+
+.main{
+    padding: 30px 0;
+}
+
+.title{
+    font-size: 30px;
+    font-weight: 600;
+}

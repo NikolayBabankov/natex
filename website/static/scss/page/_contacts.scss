@@ -1,0 +1,40 @@
+.contacts{
+    &_subtitle{
+        margin-bottom: 30px;
+    }
+    &_info{
+        margin-bottom: 20px;
+        p{
+            margin: 10px 0;
+        }
+        &_list{
+            margin-top: 10px;
+            margin-bottom: 20px;
+            padding-left: 15px;
+        }
+        &_employees{
+            list-style-type: none;
+            &_item{
+                margin-bottom: 20px;
+                &_name{
+                    font-size: 18px;
+                    font-weight: 500;
+                    margin-bottom: 5px;
+                }
+                &_text{
+                    font-size: 14px;
+                    font-weight: 400;
+                    margin-bottom: 5px;
+                }
+                &_link{
+                    text-decoration: none;
+                    color: $main-color;
+                    transition: .3s all;
+                    &:hover{
+                        color: #005782;
+                    }
+                }
+            }
+        }
+    }
+}

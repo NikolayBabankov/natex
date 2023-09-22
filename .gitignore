@@ -16,6 +16,9 @@ media/
 website/templates/_analitics.html
 website/templates/robots.txt
 website/static/mptt
+website/static/admin
+website/static/ckeditor
+website/static/rangefilter
 eggs/
 logs/
 .eggs/

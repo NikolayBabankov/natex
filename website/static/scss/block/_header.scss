@@ -1,0 +1,132 @@
+.header{
+    &_logo{
+        display: block;
+        width: 222px;
+        height: 165px;
+        background: url(/static/img/logo.png) no-repeat 0 0;
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, .5);
+        &_title{
+            font-weight: bold;
+            font-size: 40px;
+            line-height: 40px;
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            top: 24px;
+            color: #fff;
+        }
+        &_note{
+            font-size: 13px;
+            line-height: 13px;
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            top: 111px;
+            color: #fff;
+        }
+        &_line{
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            top: 90px;
+            background: #005782;
+            border-bottom: 1px solid #4b9ec6;
+        }
+    }
+    &_block{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90px;
+        &_img{
+            width: 30px;
+            height: 30px;
+        }
+        &_info{
+            font-size: 16px;
+            font-weight: 500;
+            margin-left: 10px;
+            &_phone{
+                display: block;
+                text-decoration: none;
+                transition: .3s all;
+                margin-bottom: 5px;
+                &:hover{
+                    color: $main-color;
+                }
+            }
+            &_call{
+                border: none;
+                background: none;
+                color: $main-color;
+                cursor: pointer;
+                transition: .3s all;
+                &:hover{
+                    color: #005782;
+                }
+            }
+            div{
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    justify-content: space-between;
+    margin-top: 20px;
+    &_item{
+        &_link{
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: .3s all;
+            text-transform: uppercase;
+            &:hover{
+                color: $main-color;
+            }
+        }
+        &_parent{
+            position: relative;
+        }
+        &_sub{
+            z-index: 100;
+            background: #ebebeb;
+            position: absolute;
+            top: 20px;
+            left: 0;
+            padding: 20px 15px;
+            min-width: 300px;
+            min-height: 100px;
+            list-style-type: none;
+            display: none;
+            &_show{
+                display: block;
+            }
+            &_item{
+                margin-bottom: 10px;
+                &_link{
+                    text-decoration: none;
+                    transition: .3s all;
+                    font-weight: 500;
+                    font-size: 16px;
+                    &:hover{
+                        color: $main-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes ani {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}

@@ -1,0 +1,354 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-8">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="{% url 'service' 'tekhosmotr' %}" class="index_slide">
+                            <img src="{% static 'img/slide1.jpg' %}" alt="" class="index_slide_img">
+                            <div class="index_slide_block">
+                                <p>
+                                    Мы проводим <br> техосмотр ТС <br>  категорий М1
+                                </p>
+                                <div class="index_slide_block_link">Подробнее</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="{% url 'service' 'avtoekspertiza' %}" class="index_slide">
+                            <img src="{% static 'img/slide2.jpg' %}" alt="" class="index_slide_img">
+                            <div class="index_slide_block">
+                                <p>
+                                    Независимая <br> экспертиза авто <br>  после ДТП
+                                </p>
+                                <div class="index_slide_block_link">Подробнее</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="index_slide">
+                            <img src="{% static 'img/slide3.jpg' %}" alt="" class="index_slide_img">
+                            <div class="index_slide_block">
+                                <p>
+                                    Оформляем договоры <br> купли-продажи ТС <br>
+                                </p>
+                                <div class="index_slide_block_link">Подробнее</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="index_slide">
+                            <img src="{% static 'img/slide4.jpg' %}" alt="" class="index_slide_img">
+                            <div class="index_slide_block">
+                                <p>
+                                    Выдаем заключения <br> о переоборудовании <br>
+                                </p>
+                                <div class="index_slide_block_link">Подробнее</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="index_slide">
+                            <img src="{% static 'img/slide5.jpg' %}" alt="" class="index_slide_img">
+                            <div class="index_slide_block">
+                                <p>
+                                    Получение СБКТС <br> и ЭРА ГЛОНАСС<br>
+                                </p>
+                                <div class="index_slide_block_link">Подробнее</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="index_services">
+                <div class="index_services_title">НАШИ УСЛУГИ</div>
+                <div class="row">
+                    {% for service in services %}
+                        {% if not service.is_child_node %}
+                        <div class="col-lg-3">
+                            <a href="{% url 'service' service.slug %}" class="index_services_link">
+                                <img src="{{service.pic.url}}" alt="" class="index_services_img">
+                                <div class="index_services_name">
+                                    {{service.name}}
+                                </div>
+                            </a>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="index_text">
+                <h3 class="index_text_h3">
+                    МЫ - ОЦЕНОЧНАЯ КОМПАНИЯ «НАТЭКС»
+                </h3>
+                <p class="index_text_p">
+                    Компания "НАТЭКС" работает на рынке услуг с 1996 года. 
+                    Наша компания охватывает широкий спектр услуг по оценке. 
+                    Мы занимаемся вопросами оценки ущерба транспортных средств после ДТП, 
+                    оценкой рыночной стоимости транспортных средств, недвижимости и земельных 
+                    участков, оборудования, оценкой ущерба коммерческой и жилой недвижимости.  
+                </p>
+                <p class="index_text_p">
+                    Страхование: движимого имущества-транспортных средств 
+                    и не движимого имущества-дома, квартиры, дачи, а так же жизни и здоровья. 
+                </p>
+                <p class="index_text_p">
+                    С 2005 года компания "НАТЭКС" также занимается оформлением и выдачей: 
+                    заключений о внесении изменений в конструкцию ТС (переоборудования автотранспортных средств), 
+                    СБКТС, ЭРА-ГЛОНАС, электронных паспортов ТС. 
+                    Мы успешно сотрудничаем с ведущими институтами страны в сфере автотранспорта, а так же органами 
+                    по сертификации. За время нашей работы мы выдали более 25 тысяч заключений.
+                </p>
+                <p class="index_text_p">
+                    В 2013 году, в целях расширения спектра услуг для автовладельцев, был запущен в 
+                    работу пункт технического осмотра транспортных средств категории "М1". Мы 
+                    используем новейшее оборудование для диагностики всех систем автомобиля. 
+                    Оборудование для проверки тормозных систем позволяет производить диагностику 
+                    на автомобилях, как с моно, так и с полным приводом, механические и автоматические 
+                    трансмиссии, без страха повреждения автомобиля. Оборудование ежегодно проходит поверку, 
+                    что исключает возможность оказания некачественной услуги
+                </p>
+                <p class="index_text_p">
+                    В компании "НАТЭКС" работают только 
+                    высококвалифицированные сотрудники, имеющие высшее 
+                    образование и постоянно повышающие свою квалификацию.
+                </p>
+                <p class="index_text_p">
+                    <strong>Автострахование</strong>
+                </p>
+                <p class="index_text_p">
+                    ОСАГО
+                </p>
+                <p class="index_text_p">
+                    Согласно закону, владельцы транспортных 
+                    средств обязаны страховать риск наступления 
+                    своей гражданской ответственности при использовании автомобиля.
+                </p>
+                <p class="index_text_p">
+                    КАСКО
+                </p>
+                <p class="index_text_p">
+                    Добровольное страхование транспортных 
+                    средств от угона или повреждений, стихийных 
+                    бедствий, противоправных действий третьих лиц и многих других рисков.
+                </p>
+                <p class="index_text_p">
+                   <strong>Имущество</strong>(Квартира, дача, ипотека)
+                </p>
+                <ul class="index_text_list">
+                    <div>Вы можете заключить договор на условиях страхования «от всех рисков» 
+                        или с указанием определенного перечня страховых событий в 
+                        зависимости от индивидуального состава рисков, например:
+                    </div>
+                    <li>пожар, взрыв, удар молнии;</li>
+                    <li>повреждение имущества водой;</li>
+                    <li>стихийные бедствия;</li>
+                    <li>кража со взломом, грабеж или разбой;</li>
+                    <li>противоправные действия третьих лиц 
+                        (хулиганство, вандализм, умышленное уничтожение или повреждение 
+                        застрахованного имущества по неосторожности);
+                    </li>
+                    <li>бой стекол, зеркал и витрин;</li>
+                    <li>падение летательного аппарата, его частей или груза;</li>
+                    <li>террористический акт, диверсия.</li>
+                </ul>
+                <p class="index_text_p">
+                    <strong>Здоровье и жизнь</strong>(Страхование спортсменов, несчастный случай и жизнь, страхование от укуса клеща)
+                </p>
+                <p class="index_text_p">
+                    Продуктовая линейка включает в себя классические 
+                    продукты с индивидуальными условиями и коробочные 
+                    продукты с фиксированными страховыми суммами и премиями, 
+                    что позволяет сократить время на оформление договора.
+                </p>
+                <p class="index_text_p">
+                    Программы добровольного страхования жизни и здоровья от 
+                    несчастного случая (НС) включают все основные риски, 
+                    произошедшие в результате НС: смерть, установление инвалидности, 
+                    телесные повреждения (травмы). Также есть дополнительные риски: 
+                    хирургическое вмешательство, госпитализация, временное нарушение здоровья в результате инфицирования.
+                </p>
+            </div>
+            <div class="index_facts">
+                <h3 class="index_facts_h3">
+                    Факты в цифрах
+                </h3>
+                <div class="row">
+                    <div class="col">
+                        <div class="index_facts_main">
+                            25 ЛЕТ
+                        </div>
+                        <div class="index_facts_desc">
+                            успешной работы
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="index_facts_main">
+                            25 ТЫС
+                        </div>
+                        <div class="index_facts_desc">
+                            выданных заключений <br>
+                            и сертификатов ЕВРО
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="index_facts_main">
+                            1,5 МЛН
+                        </div>
+                        <div class="index_facts_desc">
+                            довольных клиентов
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="index_facts_main">
+                            60 ТЫС
+                        </div>
+                        <div class="index_facts_desc">
+                            проведенных ТО
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="index_facts_main">
+                            ШТАТ 10
+                        </div>
+                        <div class="index_facts_desc">
+                            высококвалифици-
+                            рованных сотруднико
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="index_priv">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <div class="index_priv_title">
+                    Наши преимущества
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="index_priv_card">
+                            <img src="{% static 'img/priv1.png' %}" alt="" class="index_priv_card_img">
+                            <div class="index_priv_card_name">
+                                Высококвалифици- <br> рованный персонал
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="index_priv_card">
+                            <img src="{% static 'img/priv2.png' %}" alt="" class="index_priv_card_img">
+                            <div class="index_priv_card_name">
+                                Территориальное <br> удобство
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="index_priv_card">
+                            <img src="{% static 'img/priv3.png' %}" alt="" class="index_priv_card_img">
+                            <div class="index_priv_card_name">
+                                Гибкий график работы
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="index_priv_card">
+                            <img src="{% static 'img/priv4.png' %}" alt="" class="index_priv_card_img">
+                            <div class="index_priv_card_name">
+                                Всё по записи, <br> никакой живой очереди
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="index_priv_card">
+                            <img src="{% static 'img/priv5.png' %}" alt="" class="index_priv_card_img">
+                            <div class="index_priv_card_name">
+                                Новое современное<br> оборудование
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="index_priv_card">
+                            <img src="{% static 'img/priv6.png' %}" alt="" class="index_priv_card_img">
+                            <div class="index_priv_card_name">
+                                Габариты ТО<br> не выше 2,6 м
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="index_priv_card">
+                            <img src="{% static 'img/priv7.png' %}" alt="" class="index_priv_card_img">
+                            <div class="index_priv_card_name">
+                                Работаем<br> до 20:00
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="index_priv_card">
+                            <img src="{% static 'img/priv8.png' %}" alt="" class="index_priv_card_img">
+                            <div class="index_priv_card_name">
+                                Мы работаем<br> 7 дней в неделю
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="index_contacts">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <div class="row">
+                    <div class="col-lg-6">
+                       <div class="index_contacts_title">
+                            Контактная информация
+                       </div>
+                       <ul class="index_contacts_list">
+                            <li class="index_contacts_list_item">
+                                <strong>Адрес:</strong>Россия, 150052, ул. Елены Колесовой, д. 15А
+                            </li>
+                            <li class="index_contacts_list_item">
+                                <strong>Телефон:</strong>Россия, 150052, ул. Елены Колесовой, д. 15А
+                            </li>
+                            <li class="index_contacts_list_item">
+                                <strong>E-mail:</strong>
+                                <ul class="index_contacts_sub">
+                                    <li class="index_contacts_sub_item">
+                                        <a href="mailto:natex-yar@bk.ru">natex-yar@bk.ru</a> <span>- независимая экспертиза</span>
+                                    </li>
+                                    <li class="index_contacts_sub_item">
+                                        <a href="mailto:car_tex@mail.ru">car_tex@mail.ru</a> <span> - переоборудование ТС</span>
+                                    </li>
+                                    <li class="index_contacts_sub_item">
+                                        <a href="mailto:natex-yar@bk.ru">natex-yar@bk.ru</a> <span> - сертификаты ЕВРО 5</span>
+                                    </li>
+                                    <li class="index_contacts_sub_item">
+                                        <a href="mailto:pto.natex@mail.ru">pto.natex@mail.ru</a> <span> - техосмотр</span>
+                                    </li>
+                                </ul>
+                            </li>
+                       </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <iframe 
+                        src="https://yandex.ru/map-widget/v1/?um=constructor%3A145db455cd04bcc0fd77efd583b4d85c7caa967419521ed3bd56f470609fe2b5&amp;source=constructor" 
+                        width="100%" height="200" frameborder="0">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

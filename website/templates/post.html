@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="post">
+    <div class="container">
+        <h1 class="title">{{post.title}}</h1>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                {{post.text|safe}}
+            </div>
+        </div>
+        <a href="{% url 'blog' %}" class="post_back">Назад к списку</a>
+    </div>
+</section>
+{% endblock %}

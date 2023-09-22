@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="services">
+    <div class="container">
+        <h1 class="title">Услуги</h1>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="row">
+                    {% for service in services %}
+                        {% if not service.is_child_node %}
+                            <div class="col-lg-3">
+                                <a href="{% url 'service' service.slug %}" class="services_item_link">
+                                    <img src="{{service.pic.url}}" alt="{{service.name}}" class="services_item_img">
+                                    <div class="services_item_name">{{service.name}}</div>
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

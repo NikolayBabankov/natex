@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="blog">
+    <div class="container">
+        <h1 class="title">Статьи</h1>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                {% for post in posts %}
+                <div class="blog_post">
+                    <a href="{% url 'post' post.slug %}" class="blog_post_link">{{post.title}}</a>
+                    <div class="blog_post_shot_text">
+                        {{post.short_title}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

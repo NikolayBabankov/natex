@@ -1,0 +1,82 @@
+{% load static %}
+
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <a href="{% url 'index' %}" class="header_logo">
+                    <div class="header_logo_title">НАТЭКС</div>
+                    <div class="header_logo_note">оценочная экспертная компания</div>
+                    <hr class="header_logo_line">
+                </a>
+            </div>
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="header_block">
+                            <img src="{% static 'icons/point.svg' %}" alt="Адрес НАТЭКС" class="header_block_img">
+                            <div class="header_block_info">
+                                <div>г.Ярославль</div>
+                                <div>ул. Елены Колесовой, д. 15А</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="header_block">
+                            <img src="{% static 'icons/phone.svg' %}" alt="Телефон НАТЭКС" class="header_block_img">
+                            <div class="header_block_info">
+                                <a href="tel:84852578088" class="header_block_info_phone">
+                                    +7 (4852) 57-80-88
+                                </a>
+                                <button class="header_block_info_call">Обратный звонок</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="header_block">
+                            <img src="{% static 'icons/clock.svg' %}" alt="График работы НАТЭКС" class="header_block_img">
+                            <div class="header_block_info">
+                                <div>Пн-Пт: 9:00-20:00</div>
+                                <div>Сб: 9:00-18:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <nav>
+                    <ul class="menu">
+                        {% for service in services %}
+                            {% if service.main %}
+                                <li class="menu_item">
+                                    <a href="{% url 'service' service.slug %}" class="menu_item_link">{{service.name}}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        <li class="menu_item menu_item_parent js-menu-services">
+                            <a href="{% url 'services' %}" class="menu_item_link">УСЛУГИ</a>
+                            <ul class="menu_item_sub">
+                                {% for service in services %}
+                                    {% if not service.is_child_node %}
+                                        <li class="menu_item_sub_item">
+                                            <a href="{% url 'service' service.slug %}" class="menu_item_sub_item_link">
+                                                {{service.name}}
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="menu_item">
+                            <a href="{% url 'about' %}" class="menu_item_link">О КОМПАНИИ</a>
+                        </li>
+                        <li class="menu_item">
+                            <a href="{% url 'contacts' %}" class="menu_item_link">КОНТАКТЫ</a>
+                        </li>
+                        <li class="menu_item">
+                            <a href="{% url 'blog' %}" class="menu_item_link">СТАТЬИ</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
