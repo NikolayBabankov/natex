@@ -12,10 +12,9 @@ from appointment.utils import addEntryDay, createNextDayEntry
 
 @admin.register(Entry)
 class EntryAdmin(admin.ModelAdmin):
-    list_display = ('time', 'day', 'name',
-                    'phone', 'automobile',
-                    'year', 'reserve')
-    list_editable = ('reserve', )
+    list_display = ('id', 'time', 'day', 'name',
+                    'phone', 'automobile', 'number', 'reserve')
+    search_fields = ('id',)
     list_filter = (
         ("day__day", DateRangeQuickSelectListFilterBuilder()),
         ('reserve')

@@ -140,12 +140,26 @@
                 margin-bottom: 15px;
                 font-size: 16px;
                 font-weight: 500;
+                &_phone{
+                    &:first-child{
+                        margin-top: 5px;
+                    }
+                    text-decoration: none;
+                    font-size: 16px;
+                    display: block;
+                    margin-right: 5px;
+                    margin-bottom: 10px;
+                    width: 150px;
+                }
             }
         }
         &_sub{
             list-style-type: none;
             padding-left: 15px;
             margin-top: 15px;
+            &_item{
+                margin-bottom: 10px;
+            }
         }
     }
 }

@@ -41,6 +41,8 @@ class Entry(models.Model):
                              max_length=200, blank=True, null=True)
     automobile = models.TextField(verbose_name="Автомобиль",
                                   max_length=500, blank=True, null=True)
+    number = models.TextField(verbose_name="Номер автомобиля",
+                              max_length=500, blank=True, null=True)
     year = models.TextField(verbose_name="Год выпуска",
                             max_length=100, blank=True, null=True)
     reserve = models.BooleanField(verbose_name="Резерв",

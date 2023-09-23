@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="tekhosmotr">
+    <div class="container">
+        <h1 class="title">
+            Техосмотр
+        </h1>
+        <div class="row">
+            <div class="col-xl-9">
+                <h2 class="tekhosmotr_subtitle">
+                    Запись на технический осмотр
+                </h2>
+                <div class="tekhosmotr_entry">
+                    <div class="tekhosmotr_entry_title">
+                        1. Выберите дату и время*
+                    </div>
+                    <div class="tekhosmotr_entry_wrap">
+                        <div id="calendar" class="tekhosmotr_entry_calendar"></div>
+                        <div class="tekhosmotr_entry_time">
+                            <div class="tekhosmotr_entry_time_day js-time-day">
+                                23 сентября 2023 г.
+                            </div>
+                            <div class="tekhosmotr_entry_time_list js-time-list">
+                                {% for entry in entrys %}
+                                    <div class="tekhosmotr_entry_time_list_item js-time-entry" data-entry-id="{{entry.id}}">
+                                        {{entry.time}}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <div class="tekhosmotr_entry_time_msg js-time-msg"></div>
+                            <div class="tekhosmotr_entry_time_overlay js-time-overlay"></div>
+                        </div>
+                    </div>
+                    <form class="tekhosmotr_form js-time-form">
+                        <div class="tekhosmotr_form_wrap">
+                            <div class="tekhosmotr_form_wrap_item">
+                                <div class="tekhosmotr_form_title">
+                                    2. Транспортное средства
+                                </div>
+                                <div class="tekhosmotr_form_filed">
+                                    <label for="model" class="tekhosmotr_form_label">Марка и модель ТС*</label>
+                                    <input type="text" id="model" name="automobile" class="tekhosmotr_form_input" required placeholder="Mercedes-Benz CLS 35">
+                                </div>
+                                <div class="tekhosmotr_form_filed">
+                                    <label for="year" class="tekhosmotr_form_label">Год выпуска*</label>
+                                    <input type="text" id="year" name="year" class="tekhosmotr_form_input" required placeholder="2018">
+                                </div>
+                                <div class="tekhosmotr_form_filed">
+                                    <label for="number" class="tekhosmotr_form_label">Государственный регистрационный знак*</label>
+                                    <input type="text" id="number" name="number" class="tekhosmotr_form_input" required placeholder="А000АА00">
+                                </div>
+                            </div>
+                            <div class="tekhosmotr_form_wrap_item">
+                                <div class="tekhosmotr_form_title">
+                                    3. Контактные данные
+                                </div>
+                                <div class="tekhosmotr_form_filed">
+                                    <label for="name" class="tekhosmotr_form_label">ФИО/Название организации*</label>
+                                    <input type="text" id="name" name="name" class="tekhosmotr_form_input"required>
+                                </div>
+                                <div class="tekhosmotr_form_filed">
+                                    <label for="phone" class="tekhosmotr_form_label">Телефон*</label>
+                                    <input type="text" id="phone" name="phone" class="tekhosmotr_form_input"required>
+                                </div>
+                                <div class="tekhosmotr_form_filed">
+                                    <label for="email" class="tekhosmotr_form_label">Email</label>
+                                    <input type="text" id="email" name="email" class="tekhosmotr_form_input">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="tekhosmotr_form_btn">Записаться</button>
+                        <div class="tekhosmotr_form_priv">
+                            Нажимая кнопку "Записаться", 
+                            я даю согласие на обработку персональных данных, 
+                            в соответствии c <a href="#">Политикой конфиденциальности</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-xl-3">
+                2
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

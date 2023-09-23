@@ -22,6 +22,6 @@ class ServiceAdmin(DraggableMPTTAdmin):
     save_on_top = True
 
 
-admin.site.site_header = 'Администрирование сайта Нартекс'
+admin.site.site_header = 'Администрирование сайта НАТЭКС'
 admin.site.index_title = 'Настройки'
 admin.site.unregister(Group)

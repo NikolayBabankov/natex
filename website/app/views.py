@@ -1,6 +1,10 @@
+import datetime
+import json
 from django.shortcuts import render, get_object_or_404
+from django.db.models import Q
 
 from app.models import Service
+from appointment.models import Day, Entry
 
 
 def indexView(request):
@@ -53,4 +57,36 @@ def serviceView(request, service_slug):
     context = {'title': title,
                'description': description,
                'service': service}
+    return render(request, template, context)
+
+
+def tekhosmotrView(request):
+    """Вьюха страницы списка услуг"""
+    title = 'Техосмотр в Ярославле | Пройти техосмотр в "Натэкс"'
+    description = 'Пройти техосмотр в Ярославле вы можете у Нас, записавшись в форме на сайте!'
+    template = 'tekhosmotr.html'
+    # Получем все дни с сегодняшней даты
+    dt_now = datetime.datetime.now()
+    day = Day.objects.filter(day__gte=dt_now)
+    # Форматируем сегодняшнюю дату для vanila calendar
+    dt_now_str = dt_now.strftime("%Y-%m-%d")
+    # Записываем в массив все не рабочие дни для vanila calendar
+    # C Сегоднишней даты до последнего дня из БД
+    end = day.first()
+    end_day = datetime.datetime.combine(end.day, datetime.time(0, 0))
+    delta = datetime.timedelta(days=1)
+    no_work_day = []
+    statr_day = dt_now
+    while (statr_day <= end_day):
+        if not day.filter(day=statr_day):
+            no_work_day.append(statr_day.strftime("%Y-%m-%d"))
+        statr_day += delta
+    no_work_day = json.dumps(no_work_day)
+    endStr = end.day.strftime("%Y-%m-%d")
+    # Получаем все свобоные время записи на настоящее время
+    entrys = Entry.objects.filter(day__day=dt_now).filter(reserve=False).filter(time__gt=dt_now)
+    context = {'title': title,
+               'description': description, 'today': dt_now_str,
+               'end': endStr, 'no_work': no_work_day,
+               'entrys': entrys}
     return render(request, template, context)
