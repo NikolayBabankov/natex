@@ -6,7 +6,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-xl-8">
+        <div class="col-xl-8 col-lg-12">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -72,7 +72,7 @@
                 <div class="row">
                     {% for service in services %}
                         {% if not service.is_child_node %}
-                        <div class="col-lg-3">
+                        <div class="col-lg-3 col-md-6 col-12">
                             <a href="{% url 'service' service.slug %}" class="index_services_link">
                                 <img src="{{service.pic.url}}" alt="" class="index_services_img">
                                 <div class="index_services_name">
@@ -181,7 +181,7 @@
                     Факты в цифрах
                 </h3>
                 <div class="row">
-                    <div class="col">
+                    <div class="col-lg-2 col-md-6">
                         <div class="index_facts_main">
                             25 ЛЕТ
                         </div>
@@ -189,7 +189,7 @@
                             успешной работы
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-lg-2 col-md-6">
                         <div class="index_facts_main">
                             25 ТЫС
                         </div>
@@ -198,7 +198,7 @@
                             и сертификатов ЕВРО
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-lg-4 col-md-6">
                         <div class="index_facts_main">
                             1,5 МЛН
                         </div>
@@ -206,7 +206,7 @@
                             довольных клиентов
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-lg-2 col-md-6">
                         <div class="index_facts_main">
                             60 ТЫС
                         </div>
@@ -214,7 +214,7 @@
                             проведенных ТО
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-lg-2 col-md-6">
                         <div class="index_facts_main">
                             ШТАТ 10
                         </div>
@@ -231,12 +231,12 @@
 <section class="index_priv">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-xl-8">
+            <div class="col-xl-8 col-lg-12">
                 <div class="index_priv_title">
                     Наши преимущества
                 </div>
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 col-md-6 col-12">
                         <div class="index_priv_card">
                             <img src="{% static 'img/priv1.png' %}" alt="" class="index_priv_card_img">
                             <div class="index_priv_card_name">
@@ -244,7 +244,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 col-md-6 col-12">
                         <div class="index_priv_card">
                             <img src="{% static 'img/priv2.png' %}" alt="" class="index_priv_card_img">
                             <div class="index_priv_card_name">
@@ -252,7 +252,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 col-md-6 col-12">
                         <div class="index_priv_card">
                             <img src="{% static 'img/priv3.png' %}" alt="" class="index_priv_card_img">
                             <div class="index_priv_card_name">
@@ -260,7 +260,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 col-md-6 col-12">
                         <div class="index_priv_card">
                             <img src="{% static 'img/priv4.png' %}" alt="" class="index_priv_card_img">
                             <div class="index_priv_card_name">
@@ -268,7 +268,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 col-md-6 col-12">
                         <div class="index_priv_card">
                             <img src="{% static 'img/priv5.png' %}" alt="" class="index_priv_card_img">
                             <div class="index_priv_card_name">
@@ -276,7 +276,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 col-md-6 col-12">
                         <div class="index_priv_card">
                             <img src="{% static 'img/priv6.png' %}" alt="" class="index_priv_card_img">
                             <div class="index_priv_card_name">
@@ -284,7 +284,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 col-md-6 col-12">
                         <div class="index_priv_card">
                             <img src="{% static 'img/priv7.png' %}" alt="" class="index_priv_card_img">
                             <div class="index_priv_card_name">
@@ -292,7 +292,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 col-md-6 col-12">
                         <div class="index_priv_card">
                             <img src="{% static 'img/priv8.png' %}" alt="" class="index_priv_card_img">
                             <div class="index_priv_card_name">
@@ -308,9 +308,9 @@
 <section class="index_contacts">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-xl-8">
+            <div class="col-xl-8 col-lg-12">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 col-md-6 col-12">
                        <div class="index_contacts_title">
                             Контактная информация
                        </div>
@@ -343,7 +343,7 @@
                             </li>
                        </ul>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 col-md-6 col-12">
                         <iframe 
                         src="https://yandex.ru/map-widget/v1/?um=constructor%3A145db455cd04bcc0fd77efd583b4d85c7caa967419521ed3bd56f470609fe2b5&amp;source=constructor" 
                         width="100%" height="350" frameborder="0">
@@ -354,4 +354,5 @@
         </div>
     </div>
 </section>
+
 {% endblock %}

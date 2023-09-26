@@ -1,9 +1,10 @@
 import datetime
 import json
 from django.shortcuts import render, get_object_or_404
-from django.db.models import Q
+from django.http import JsonResponse, HttpResponseBadRequest
 
-from app.models import Service
+from app.models import Service, Application
+from app.send_email import sendEmail
 from appointment.models import Day, Entry
 
 
@@ -85,8 +86,32 @@ def tekhosmotrView(request):
     endStr = end.day.strftime("%Y-%m-%d")
     # Получаем все свобоные время записи на настоящее время
     entrys = Entry.objects.filter(day__day=dt_now).filter(reserve=False).filter(time__gt=dt_now)
+    service = Service.objects.get(slug='tekhosmotr')
     context = {'title': title,
-               'description': description, 'today': dt_now_str,
-               'end': endStr, 'no_work': no_work_day,
-               'entrys': entrys}
+               'description': description,
+               'today_str': dt_now_str, 'today': dt_now,
+               'end_str': endStr, 'no_work': no_work_day,
+               'entrys': entrys, 'service': service}
     return render(request, template, context)
+
+
+def applicationAjaxViews(request):
+    """ Отправка заявки по AJAX """
+    is_ajax = request.headers.get('X-Requested-With') == 'XMLHttpRequest'
+
+    if is_ajax:
+        if request.method == 'POST':
+            data = json.loads(request.body)
+            try:
+                lead = Application.objects.create(name=data['name'],
+                                                  phone=data['phone'])
+            except Exception:
+                return JsonResponse({'status': 'Error'}, status=400)
+            dt_now = datetime.datetime.now()
+            date = dt_now.strftime('%H:%M - %d.%m.%Y')
+            dictLead = {'name': lead.name, 'phone': lead.phone, 'date': date}
+            sendEmail(dictLead)
+            return JsonResponse({'status': 'Send'})
+        return JsonResponse({'status': 'Invalid request'}, status=400)
+    else:
+        return HttpResponseBadRequest('Invalid request')

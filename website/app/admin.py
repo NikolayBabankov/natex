@@ -4,7 +4,7 @@ from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from mptt.admin import DraggableMPTTAdmin
 from django import forms
 
-from app.models import Service
+from app.models import Service, DocumentProduct, Application
 
 
 class ServiceAdminForm(forms.ModelForm):
@@ -20,6 +20,16 @@ class ServiceAdmin(DraggableMPTTAdmin):
     form = ServiceAdminForm
     save_as = True
     save_on_top = True
+
+
+@admin.register(DocumentProduct)
+class DocumentProductAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Application)
+class ApplicationAdmin(admin.ModelAdmin):
+    list_display = ('name', 'phone', 'created_at',)
 
 
 admin.site.site_header = 'Администрирование сайта НАТЭКС'

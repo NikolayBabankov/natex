@@ -28,7 +28,7 @@
                                 <a href="tel:84852578088" class="header_block_info_phone">
                                     +7 (4852) 57-80-88
                                 </a>
-                                <button class="header_block_info_call">Обратный звонок</button>
+                                <button class="header_block_info_call js-modal-btn">Обратный звонок</button>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <nav>
-                    <ul class="menu">
+                    <ul class="menu js-menu">
                         {% for service in services %}
                             {% if service.main %}
                                 <li class="menu_item">
@@ -74,9 +74,17 @@
                         <li class="menu_item">
                             <a href="{% url 'blog' %}" class="menu_item_link">СТАТЬИ</a>
                         </li>
+                        <li class="menu_item menu_item_mobile">
+                            <a href="tel:84852578088" class="menu_item_link">+7(4852)57-80-88</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
         </div>
     </div>
+    <div class="hamburger js-menu-btn">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </div>  
 </header>

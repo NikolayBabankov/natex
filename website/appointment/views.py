@@ -1,5 +1,6 @@
 from django.http import JsonResponse, HttpResponseBadRequest
 import logging, datetime, json
+from django.core import serializers
 
 from appointment.models import Entry
 
@@ -46,18 +47,18 @@ def createEntryAjaxViews(request):
             entry.number = data['number']
             entry.year = data['year']
             if 'email' in data:
-                entry.year = data['email']
+                entry.email = data['email']
             entry.save()
-            # dt_now = datetime.datetime.now()
-            # date_request = datetime.datetime.strptime(data['date'], '%Y-%m-%d')
-            # if date_request > dt_now:
-            #     entrys = Entry.objects.filter(day__day=date_request).filter(reserve=False)
-            # else:
-            #     entrys = Entry.objects.filter(day__day=date_request).filter(reserve=False).filter(time__gt=dt_now)
-            # date_entry = {}
-            # for entry in entrys:
-            #     date_entry[entry.id] = entry.time.strftime('%H %M')
-            return JsonResponse({'status': 'Ok'}, status=200)
+            data_answer = {
+                'id': entry.id,
+                'time': entry.time,
+                'day': entry.day.day,
+                'automobile': entry.automobile,
+                'number': entry.number,
+                'year': entry.year,
+                'phone': entry.phone,
+                'name': entry.name}
+            return JsonResponse({'data': data_answer}, status=200)
         return JsonResponse({'status': 'Invalid request'}, status=400)
     else:
         return HttpResponseBadRequest('Invalid request')

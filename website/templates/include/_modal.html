@@ -1,0 +1,37 @@
+{% load static %}
+<div class="overlay js-overlay"></div>
+
+<div class="modal js-modal">
+    {% csrf_token %}
+    <!--   Svg иконка для закрытия окна  -->
+    <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 
+        9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 
+        9.112-9.192 9.18 9.1z"/>
+    </svg>
+    <div class="modal_title">Заполните форму заявки</div>
+    <div class="modal_desc">Мы перезвоним вам в ближайшее время</div>
+    <form  class="modal_form js-modal-form">
+      <input name = "name" type="text" class="modal_form_input"  required placeholder="Ваше имя">
+      <input name = "phone" class="js-mask-phone modal_form_input"  required placeholder="Ваш телефон">
+      <button type="submit" class="modal_form_btn">Отправить</button>
+    </form>
+    <div class="modal_form_politic">
+        Нажимая кнопку "Отправить", 
+        я даю согласие на обработку персональных данных, 
+        в соответствии c <a href="{% url 'politica' %}">Политикой конфиденциальности</a>
+    </div>
+</div>
+
+<div class="modal modal_msg js-modal-msg">
+    <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 
+        9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 
+        9.112-9.192 9.18 9.1z"/>
+    </svg>
+    <div class="modal_msg_text"></div>
+</div>
+
+<div class="spinner js-spinner">
+    <img src="{% static 'img/spinner.gif' %}" alt="">
+</div>

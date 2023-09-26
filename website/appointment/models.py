@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 
 
 class Day(models.Model):
-    """ Рабочие дня для запись на ТО """
+    """ Рабочие дни для запись на ТО """
     day = models.DateField(unique=True, verbose_name="Дата")
     start = models.TimeField(verbose_name="Начало записи", default='09:00:00')
     end = models.TimeField(verbose_name="Конец записи", default='20:00:00')

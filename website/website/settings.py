@@ -148,3 +148,9 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SMTP_EMAIL = conf.SMTP_EMAIL
+LOGIN_EMAIL= conf.LOGIN_EMAIL
+PASS_EMAIL = conf.PASS_EMAIL
+DEST_EMAIL = conf.DEST_EMAIL
+SUB_EMAIL = 'Заявка с сайта'

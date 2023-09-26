@@ -35,17 +35,34 @@ class Service(MPTTModel):
         return f'{self.name}'
 
 
-# class DocumentProduct(models.Model):
-#     """Модель документов"""
-#     name = models.TextField(max_length=100, verbose_name='Название')
-#     doc = models.FileField(upload_to='document/',
-#                            verbose_name='Документ', blank=True, null=True)
-#     service = models.ForeignKey(
-#         Service, related_name='document', on_delete=models.CASCADE)
+class DocumentProduct(models.Model):
+    """Модель документов"""
+    name = models.TextField(max_length=1000, verbose_name='Название')
+    doc = models.FileField(upload_to='document/',
+                           verbose_name='Документ', blank=True, null=True)
+    service = models.ForeignKey(
+        Service, related_name='document', on_delete=models.CASCADE,
+        verbose_name='Услуга')
 
-#     def __str__(self):
-#         return f'{self.name}'
+    def __str__(self):
+        return f'{self.name}'
 
-#     class Meta:
-#         verbose_name = 'Документ'
-#         verbose_name_plural = 'Документы'
+    class Meta:
+        verbose_name = 'Документ'
+        verbose_name_plural = 'Документы'
+
+
+class Application(models.Model):
+    """ Модель заявки"""
+    name = models.TextField(max_length=100, verbose_name='Имя')
+    phone = models.TextField(max_length=100, verbose_name='Телефон')
+    created_at = models.DateTimeField(
+        auto_now_add=True, verbose_name='Дата'
+    )
+
+    class Meta:
+        verbose_name = 'Заявка'
+        verbose_name_plural = 'Заявки'
+
+    def __str__(self):
+        return f'{self.name} - {self.created_at}'

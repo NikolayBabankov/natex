@@ -23,12 +23,15 @@
   </main>
   {% include 'include/_footer.html' %}
   {% include 'include/_modal.html' %}
+  <a href="{% url 'service' 'tekhosmotr' %}" class="btn_entry js-bottom-btn">
+    <img src="{%  static 'img/request.png' %}" alt="" class="btn_entry_img">
+    <div class="btn_entry_text">Записаться на ТО</div>
+  </a>
   <script>
-        const to_day = "{{today}}";
-        const end_day = "{{end}}";
-        const no_work_day = {{no_work|safe}};
         const url_free_entry = "{% url 'free_entry' %}";
         const url_post_entry = "{% url 'post_entry' %}";
+        const url_lead = "{% url 'lead' %}";
+        const url_success_lead = "{% url 'success_lead' %}";
   </script>
   <script src='{% static "js/swiper.js" %}'></script>
   <script src='{% static "js/fslightbox.js" %}'></script>

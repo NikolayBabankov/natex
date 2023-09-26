@@ -19,6 +19,15 @@ class EntryAdmin(admin.ModelAdmin):
         ("day__day", DateRangeQuickSelectListFilterBuilder()),
         ('reserve')
     )
+
+    readonly_fields = ('time', 'day',)
+
+    fieldsets = (
+        (None, {'fields': (('reserve',), )}),
+        (None, {'fields': (('name', 'phone', 'email'), )}),
+        (None, {'fields': (('automobile', 'year', 'number'), )}),
+    )
+
     save_as = True
     save_on_top = True
 

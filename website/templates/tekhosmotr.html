@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<section class="tekhosmotr">
+<section class="tekhosmotr js-tekhosmotr">
     <div class="container">
         <h1 class="title">
             Техосмотр
@@ -21,7 +21,7 @@
                         <div id="calendar" class="tekhosmotr_entry_calendar"></div>
                         <div class="tekhosmotr_entry_time">
                             <div class="tekhosmotr_entry_time_day js-time-day">
-                                23 сентября 2023 г.
+                               {{today|date:"d E Y"}} г.
                             </div>
                             <div class="tekhosmotr_entry_time_list js-time-list">
                                 {% for entry in entrys %}
@@ -75,16 +75,60 @@
                         <div class="tekhosmotr_form_priv">
                             Нажимая кнопку "Записаться", 
                             я даю согласие на обработку персональных данных, 
-                            в соответствии c <a href="#">Политикой конфиденциальности</a>
+                            в соответствии c <a href="{% url 'politica' %}">Политикой конфиденциальности</a>
                         </div>
                     </form>
+                    <h3 class="tekhosmotr_h3" id="info">
+                        Информация для клиента
+                    </h3>
+                    <div class="tekhosmotr_text">
+                        {{service.text|safe}}
+                    </div>
+                    <h3 class="tekhosmotr_h3" id="license">
+                        Аттестат аккредитации
+                    </h3>
+                    <a href="{% static 'img/license.jpg' %}" data-fslightbox="gallery" class="tekhosmotr_license">
+                        <img src="{% static 'img/license.jpg' %}" alt="">
+                    </a>
                 </div>
             </div>
             <div class="col-xl-3">
-                2
+                <div class="tekhosmotr_sidebar">
+                    <a href="#info" class="tekhosmotr_sidebar_link js-block-scroll">
+                        Информация для клиента
+                    </a>
+                    <a href="#license" class="tekhosmotr_sidebar_link js-block-scroll">
+                        Аттестат аккредитации
+                    </a>
+                    <hr class="tekhosmotr_sidebar_line">
+                    <div class="tekhosmotr_sidebar_name">
+                        Документы
+                    </div>
+                    <div class="tekhosmotr_sidebar_desc">
+                        Мы осуществляем свою деятельность на основании и 
+                        в соответствии с действующим законодательством Российской Федерации. 
+                        Федеральный закон, регулирующий деятельность по техосмотру:
+                    </div>
+                    <ul class="tekhosmotr_sidebar_list">
+                        {% for document in service.document.all %}
+                        <li class="tekhosmotr_sidebar_list_item">
+                            <a href="{{document.doc.url}}" class="tekhosmotr_sidebar_list_item_link">
+                                {{document.name}}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+        const to_day = "{{today_str}}";
+        const end_day = "{{end_str}}";
+        const no_work_day = {{no_work|safe}};
+</script>
+
 
 {% endblock %}

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Open+Sans:wght@600&display=swap');
 @import 'base/variables';
 @import 'libs/grid';
 @import 'libs/normilize';
@@ -6,6 +7,7 @@
 @import 'libs/swiper';
 @import 'block/header';
 @import 'block/footer';
+@import 'block/modal';
 @import 'page/about';
 @import 'page/blog';
 @import 'page/services';
@@ -24,9 +26,8 @@
 
 
 body {
-    min-width: 1000px;
     background: #f3f3f3 url(/static/img/background.png);
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: #2a2a2a;
 }
 
@@ -37,4 +38,25 @@ body {
 .title{
     font-size: 30px;
     font-weight: 600;
+}
+
+.btn_entry{
+    z-index: 10;
+    position: fixed;
+    white-space: normal;
+    width: 54px;
+    top: 50%;
+    right: 0;
+    margin: -108px 0 0;
+    height: auto;
+    line-height: normal;
+    padding: 0;
+    background: #007bb5;
+    background: -webkit-linear-gradient(to right, #009eda, #00568d);
+    background: linear-gradient(to right, #009eda, #00568d);
+    box-shadow: inset 2px 0 2px 1px #00aaea, 2px 0 5px 0 rgba(0, 0, 0, .65);
+}
+
+.btn_entry_text{
+    display: none;
 }
