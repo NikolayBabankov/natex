@@ -6,7 +6,7 @@ from appointment.models import Day, Entry
 
 def createNextDayEntry(day):
     """ Создание дней записи с ПН до СБ включительно"""
-    end_day_week = day.day + datetime.timedelta(days=5)
+    end_day_week = day.day + datetime.timedelta(days=4)
     next_day = day.day + datetime.timedelta(days=1)
     while next_day <= end_day_week:
         Day.objects.get_or_create(day=next_day)
