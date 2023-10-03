@@ -26,8 +26,11 @@ class Service(MPTTModel):
     extra_text = models.TextField(verbose_name='Доп. текст',
                                   null=True, blank=True)
 
+
+    class MPTTMeta:
+        order_insertion_by = ['sort_number', 'name']
+        
     class Meta:
-        ordering = ['sort_number', 'name']
         verbose_name = 'Услуга'
         verbose_name_plural = 'Услуги'
 
