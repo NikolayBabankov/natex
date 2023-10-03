@@ -115,3 +115,7 @@ def applicationAjaxViews(request):
         return JsonResponse({'status': 'Invalid request'}, status=400)
     else:
         return HttpResponseBadRequest('Invalid request')
+
+
+def error404(request, exception):
+    return render(request, '404.html', status=404)

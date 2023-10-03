@@ -28,6 +28,7 @@ urlpatterns = [
     path('', include('blog.urls')),
 ]
 
+handler404 = 'app.views.error404'
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
