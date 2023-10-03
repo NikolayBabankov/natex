@@ -56,11 +56,13 @@
                             <ul class="menu_item_sub">
                                 {% for service in services %}
                                     {% if not service.is_child_node %}
-                                        <li class="menu_item_sub_item">
-                                            <a href="{% url 'service' service.slug %}" class="menu_item_sub_item_link">
-                                                {{service.name}}
-                                            </a>
-                                        </li>
+                                        {% if not service.main %}
+                                            <li class="menu_item_sub_item">
+                                                <a href="{% url 'service' service.slug %}" class="menu_item_sub_item_link">
+                                                    {{service.name}}
+                                                </a>
+                                            </li>
+                                        {% endif %}
                                     {% endif %}
                                 {% endfor %}
                             </ul>
