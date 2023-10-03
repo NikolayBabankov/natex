@@ -74,7 +74,12 @@ def tekhosmotrView(request):
     # Записываем в массив все не рабочие дни для vanila calendar
     # C Сегоднишней даты до последнего дня из БД
     end = day.first()
-    end_day = datetime.datetime.combine(end.day, datetime.time(0, 0))
+    if not end:
+        end_day = datetime.datetime.now()
+        endStr = end_day.strftime("%Y-%m-%d")
+    else:
+        end_day = datetime.datetime.combine(end.day, datetime.time(0, 0))
+        endStr = end.day.strftime("%Y-%m-%d")
     delta = datetime.timedelta(days=1)
     no_work_day = []
     statr_day = dt_now
@@ -83,7 +88,6 @@ def tekhosmotrView(request):
             no_work_day.append(statr_day.strftime("%Y-%m-%d"))
         statr_day += delta
     no_work_day = json.dumps(no_work_day)
-    endStr = end.day.strftime("%Y-%m-%d")
     # Получаем все свобоные время записи на настоящее время
     entrys = Entry.objects.filter(day__day=dt_now).filter(reserve=False).filter(time__gt=dt_now)
     service = Service.objects.get(slug='tekhosmotr')
