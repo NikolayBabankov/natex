@@ -25,6 +25,42 @@
             font-weight: 500;
         }
     }
+    &_osago{
+        padding: 30px;
+        min-height: 200px;
+        background: #fff;
+        border-radius: 6px;
+        &_title{
+            text-align: center;
+            font-size: 22px;
+            font-weight:600;
+            margin-bottom: 20px;
+        }
+        &_desc{
+            text-align: center;
+            font-size: 18px;
+        }
+        img{
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 15px;
+        }
+        a{
+            display: block;
+            margin: 0 auto;
+            margin-top: 25px;
+            width: 150px;
+            height: 40px;
+            text-align: center;
+            color: #fff;
+            background: $main-color;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 6px;
+            line-height: 40px;
+            text-decoration: none;
+        }
+    }
 }
 
 .service{

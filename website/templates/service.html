@@ -2,17 +2,37 @@
 {% load static %}
 
 {% block content %}
-
+{% if service.slug == 'osago' %}
+<script type="text/javascript" src="https://osago.finuslugi.ru/js/frame-calc.js"></script>
+{% endif %}
 <section class="service js-service">
     <div class="container">
         <h1 class="title">{{service.name}}</h1>
         <div class="row">
             <div class="col-lg-8">
+                {% if service.slug == 'osago' %}
+                <div class="service_osago">
+                    <div id="frame-calculator_wrap" data-partner="moex" data-id="adcfd791464f9f789f926134529ec36e" data-color="#1C89C7"></div>
+                </div>
+                {% endif %}
                 <div class="service_post">
                     {{service.text|safe}}
                 </div>
             </div>
             <div class="col-lg-4">
+                {% if service.slug == 'osago' %}
+                    <div class="services_osago">
+                        <div class="services_osago_title">
+                            Записаться на техосмотр
+                        </div>
+                        <div class="services_osago_desc">
+                            Техосмотр, диагностическая карта, страховка — всё для вашего автомобиля в одном месте.
+                        </div>
+                        <a href="{% url 'tekhosmotr' %}">
+                            Записаться
+                        </a>
+                    </div>
+                {% else %}
                 <div class="service_sidebar">
                     <div class="service_sidebar_title">
                         Услуги
@@ -36,6 +56,7 @@
                     {% endfor %}
                     </ul>
                 </div>
+                {% endif %}
             </div>
         </div>
         <div class="service_extra_text">
