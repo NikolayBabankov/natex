@@ -3,80 +3,12 @@
 
 
 {% block content %}
-
+<script type="text/javascript" src="https://osago.finuslugi.ru/js/frame-calc.js"></script>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-xl-8 col-lg-12">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <a href="{% url 'service' 'tekhosmotr' %}" class="index_slide">
-                            <img src="{% static 'img/slide1.jpg' %}" alt="" class="index_slide_img">
-                            <div class="index_slide_block">
-                                <p>
-                                    Мы проводим <br> техосмотр ТС <br>  категорий М1
-                                </p>
-                                <div class="index_slide_block_link">Подробнее</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="{% url 'service' 'osago' %}" class="index_slide">
-                            <img src="{% static 'img/slide5.jpg' %}" alt="" class="index_slide_img">
-                            <div class="index_slide_block">
-                                <p>
-                                    Купить ОСАГО<br>онлайн<br>
-                                </p>
-                                <div class="index_slide_block_link">Подробнее</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="{% url 'service' 'avtoekspertiza' %}" class="index_slide">
-                            <img src="{% static 'img/slide2.jpg' %}" alt="" class="index_slide_img">
-                            <div class="index_slide_block">
-                                <p>
-                                    Независимая <br> экспертиза авто <br>  после ДТП
-                                </p>
-                                <div class="index_slide_block_link">Подробнее</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="{% url 'service' 'oformlenie-ts' %}" class="index_slide">
-                            <img src="{% static 'img/slide3.jpg' %}" alt="" class="index_slide_img">
-                            <div class="index_slide_block">
-                                <p>
-                                    Оформляем договоры <br> купли-продажи ТС <br>
-                                </p>
-                                <div class="index_slide_block_link">Подробнее</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="{% url 'service' 'pereoborudovanie-ts' %}" class="index_slide">
-                            <img src="{% static 'img/slide4.jpg' %}" alt="" class="index_slide_img">
-                            <div class="index_slide_block">
-                                <p>
-                                    Выдаем заключения <br> о переоборудовании <br>
-                                </p>
-                                <div class="index_slide_block_link">Подробнее</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="{% url 'service' 'poluchenie-sbkts-i-era-glonass' %}" class="index_slide">
-                            <img src="{% static 'img/slide5.jpg' %}" alt="" class="index_slide_img">
-                            <div class="index_slide_block">
-                                <p>
-                                    Получение СБКТС <br> и ЭРА ГЛОНАСС<br>
-                                </p>
-                                <div class="index_slide_block_link">Подробнее</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
+            <div class="index_osago">
+                <div id="frame-calculator_wrap" data-partner="moex" data-id="adcfd791464f9f789f926134529ec36e" data-color="#1C89C7"></div>
             </div>
             <div class="index_services">
                 <div class="index_services_title">НАШИ УСЛУГИ</div>
